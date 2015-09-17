@@ -1,0 +1,35 @@
+body {
+	font-family:arial,helvetica,sans-serif;
+
+}
+#wrapper {
+	width:1000px;
+	height: 500px;
+	margin:0px auto;
+	border:1px solid #bbb;
+	padding:10px;
+}
+
+
+/* applies to all divs within the content div */
+div {
+	padding:10px;
+	border:1px solid #bbb;
+	float:left;
+}
+
+#content-box1, #content-box2, #content-box3, #content-box4 {
+	width:200px;
+	padding:10px;
+	border:1px solid #bbb;
+	margin-left:10px;
+	height:300px;
+	
+	white-space: normal;
+
+}
+p {
+	font-size: 200px;
+	margin: 0px;
+	text-align: center;
+}
