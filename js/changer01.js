@@ -51,6 +51,13 @@ var cards = [
 	// Object.create(card).init(['<img src="http://sonicmenu.s3.amazonaws.com/3441352823890.46749.png" />', '22'])
 ]
 
+cards[3].flip = function() {
+	return function() {
+		// put override code here .. eg ..
+		alert("I am a bad card. I do not flip.");
+	}
+}
+
 for (var i = 0; i < cards.length; i++) {
 	var currentDomCard = document.getElementsByClassName('card')[i];
 	cards[i].draw(currentDomCard);
