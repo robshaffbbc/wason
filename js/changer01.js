@@ -35,10 +35,20 @@ if (typeof Object.create !== 'function') {
 }
 
 var cards = [
+
+// Every card with vowel has an even number on the other side
+
 	Object.create(card).init(['A', '2']),
 	Object.create(card).init(['N', '7']),
 	Object.create(card).init(['3', 'P']),
-	Object.create(card).init(['4', 'E', 'F'])
+	Object.create(card).init(['4', 'E'])
+
+// If you are drinking alcohol then you must be over 18
+
+	// Object.create(card).init(['16', '<img src="http://sonicmenu.s3.amazonaws.com/3441352823890.46749.png" />']),
+	// Object.create(card).init(['25', '<img src="http://sonicmenu.s3.amazonaws.com/3441352823890.46749.png" />']),
+	// Object.create(card).init(['<img src="https://blog.schneider-electric.com/wp-content/uploads/2015/08/Beer-Glass1.jpg" />', '15']),
+	// Object.create(card).init(['<img src="http://sonicmenu.s3.amazonaws.com/3441352823890.46749.png" />', '22'])
 ]
 
 for (var i = 0; i < cards.length; i++) {
