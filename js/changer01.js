@@ -1,11 +1,9 @@
 var card = {
 	currentSide: '',
-	back: '',
-	front: '',
-	init: function (front, back) {
-		this.front = front;
-		this.back = back;
-		this.currentSide = front;
+	sides: [],
+	init: function (sides) {
+		this.sides = sides;
+		this.currentSide = sides[0];
 
 		return this;
 	},
@@ -16,8 +14,13 @@ var card = {
 		var that = this;
 
 		return function () {
-			that.currentSide = (that.currentSide == that.front) ?
-				that.back : that.front;
+			currentIndex = that.sides.indexOf(that.currentSide);
+			if (currentIndex < that.sides.length - 1) {
+				that.currentSide = that.sides[currentIndex + 1]
+			} else {
+				that.currentSide = that.sides[0]
+			}
+
 			that.draw(currentDomCard);
 		}
 	}
@@ -32,10 +35,10 @@ if (typeof Object.create !== 'function') {
 }
 
 var cards = [
-	Object.create(card).init('A', '2'),
-	Object.create(card).init('N', '7'),
-	Object.create(card).init('3', 'P'),
-	Object.create(card).init('4', 'E')
+	Object.create(card).init(['A', '2']),
+	Object.create(card).init(['N', '7']),
+	Object.create(card).init(['3', 'P']),
+	Object.create(card).init(['4', 'E', 'F'])
 ]
 
 for (var i = 0; i < cards.length; i++) {
