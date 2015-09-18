@@ -1,32 +1,45 @@
-var Card = function (front, back) {
-	this.currentSide = front;
-	this.back = back;
-	this.front = front;
-	this.flip = function () {
-		this.currentSide = (this.currentSide == this.front) ?
-			this.back : this.front;
-	};
-	this.draw = function(element) {
-		element.innerHTML = this.currentSide;
-	};
-}
+var card = {
+	currentSide: '',
+	back: '',
+	front: '',
+	init: function (front, back) {
+		this.front = front;
+		this.back = back;
+		this.currentSide = front;
 
-var change = function(currentDomCard, card) {
-	return function() {
-		card.flip();
-		card.draw(currentDomCard);
+		return this;
+	},
+	draw: function(element) {
+		element.innerHTML = this.currentSide;
+	},
+	flip: function (currentDomCard) {
+		var that = this;
+
+		return function () {
+			that.currentSide = (that.currentSide == that.front) ?
+				that.back : that.front;
+			that.draw(currentDomCard);
+		}
 	}
+};
+
+if (typeof Object.create !== 'function') {
+	Object.create = function(o) {
+		var F = function () {};
+		F.prototype = o;
+		return new F();
+	};
 }
 
 var cards = [
-	new Card('A', '2'),
-	new Card('N', '7'),
-	new Card('3', 'P'),
-	new Card('4', 'E')
+	Object.create(card).init('A', '2'),
+	Object.create(card).init('N', '7'),
+	Object.create(card).init('3', 'P'),
+	Object.create(card).init('4', 'E')
 ]
 
 for (var i = 0; i < cards.length; i++) {
 	var currentDomCard = document.getElementsByClassName('card')[i];
 	cards[i].draw(currentDomCard);
-	currentDomCard.addEventListener('click', change(currentDomCard, cards[i]));
+	currentDomCard.addEventListener('click', cards[i].flip(currentDomCard, cards[i]));
 };
