@@ -1,27 +1,26 @@
 var card = {
-	currentSide: '',
+	currentIndex: 0,
 	sides: [],
 	init: function (sides) {
 		this.sides = sides;
-		this.currentSide = sides[0];
+		this.currentIndex = 0;
 
 		return this;
 	},
 	draw: function(element) {
-		element.innerHTML = this.currentSide;
+		element.innerHTML = this.sides[this.currentIndex];
 	},
-	flip: function (currentDomCard) {
+	flip: function (element) {
 		var that = this;
 
 		return function () {
-			currentIndex = that.sides.indexOf(that.currentSide);
-			if (currentIndex < that.sides.length - 1) {
-				that.currentSide = that.sides[currentIndex + 1]
+			if (that.currentIndex < that.sides.length - 1) {
+				that.currentIndex += 1;
 			} else {
-				that.currentSide = that.sides[0]
+				that.currentIndex = 0;
 			}
 
-			that.draw(currentDomCard);
+			that.draw(element);
 		}
 	}
 };
@@ -36,8 +35,8 @@ if (typeof Object.create !== 'function') {
 
 function drawCards(cards) {
 	for (var i = 0; i < cards.length; i++) {
-		var currentDomCard = document.getElementsByClassName('card')[i];
-		cards[i].draw(currentDomCard);
-		currentDomCard.addEventListener('click', cards[i].flip(currentDomCard, cards[i]));
+		var element = document.getElementsByClassName('card')[i];
+		cards[i].draw(element);
+		element.addEventListener('click', cards[i].flip(element));
 	};
 }
