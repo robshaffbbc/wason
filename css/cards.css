@@ -35,6 +35,10 @@ h1 {
 	-ms-user-select: none;
 }
 
+.card.moveable:hover {
+	margin-top: 0;
+}
+
 .card img {
 	width: 200px;
 }
