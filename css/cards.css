@@ -1,8 +1,12 @@
 body {
 	font-family:arial,helvetica,sans-serif;
 	width: 100%;
-
 }
+
+h1 {
+	text-align: center;
+}
+
 #wrapper {
 	width: 970px;
 	margin: 0 auto;
@@ -16,7 +20,7 @@ body {
 	height:245px;
 	padding:10px;
 	border:1px solid #bbb;
-	margin: 0 10px;
+	margin: 0 10px 80px 10px;
 	white-space: normal;
 	overflow: hidden;
 	border-radius: 20px;
@@ -33,4 +37,14 @@ body {
 
 .card img {
 	width: 200px;
+}
+
+p {
+	font-size: 1.5em;
+	text-align: center;
+	clear: both;
+}
+
+p.rule {
+	font-weight: bold;
 }
