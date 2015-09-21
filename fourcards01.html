@@ -21,7 +21,17 @@
 		<p class="rule">Every card with vowel has an even number on the other side.</p>
 		<p>What is the minimum number of cards you need to turn over to disprove the rule?</p>
 	</div>
-	<script src="js/changer01.js"></script>
+
+	<script>
+		var cards = [
+			Object.create(card).init(['A', '2']),
+			Object.create(card).init(['N', '7']),
+			Object.create(card).init(['3', 'P']),
+			Object.create(card).init(['4', 'E'])
+		];
+
+		drawCards(cards);
+	</script>
 </body>
 
 </html>
