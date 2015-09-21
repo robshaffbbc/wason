@@ -52,3 +52,7 @@ p {
 p.rule {
 	font-weight: bold;
 }
+
+a.next {
+	float: right;
+}
