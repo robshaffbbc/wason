@@ -1,0 +1,39 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+
+	<title>Wason Selection Experiment</title>
+	<link rel="stylesheet" href="css/cards.css">
+	<script src="js/card.js"></script>
+ </head>
+
+<body>
+	<h1>Wason Selection Experiment</h1>
+	<div id="wrapper">
+		<div class="card"></div>
+		<div class="card"></div>
+		<div class="card"></div>
+		<div class="card"></div>
+
+		<p class="rule">If you are drinking alcohol then you must be over 18.</p>
+		<p>The same problem, applied to a social context, is much easier to work out.</p>
+
+		<a href="fourcards02.html" class="previous">&lt; previous</a>
+	</div>
+
+	<script>
+		var cards = [
+			Object.create(card).init(['16', '<img src="img/beer.png" />']),
+			Object.create(card).init(['25', '<img src="img/coke.jpg" />']),
+			Object.create(card).init(['<img src="img/beer.png" />', '15']),
+			Object.create(card).init(['<img src="img/coke.jpg" />', '22'])
+		];
+
+		drawCards(cards);
+	</script>
+</body>
+
+</html>
