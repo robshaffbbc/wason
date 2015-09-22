@@ -1,22 +1,39 @@
+<!doctype html>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html lang="en">
 
 <head>
-  	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  	<title>Wason</title>
-  	<script src="js/changer02.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/cards.css">
+	<meta charset="utf-8" />
+
+	<title>Wason Selection Experiment</title>
+	<link rel="stylesheet" href="css/cards.css">
+	<script src="js/card.js"></script>
  </head>
 
 <body>
+	<h1>Wason Selection Experiment</h1>
 	<div id="wrapper">
-		<div id="content-box1" class="card"><p onclick="change(this)">0</p></div>
-	  	<div id="content-box2" class="card"><p onclick="change(this)">O</p></div>
-	  	<div id="content-box3" class="card"><p onclick="change(this)">o</p></div>
-	  	<div id="content-box4" class="card"><p onclick="change(this)">0002</p></div>
+		<div class="card"></div>
+		<div class="card"></div>
+		<div class="card moveable"></div>
+		<div class="card"></div>
+
+		<p class="rule">Every card with vowel has an even number on the other side.</p>
+		<p>What other problems might you find with this?</p>
+
+		<a href="fourcards01.html" class="previous">&lt; previous</a>
 	</div>
+
+	<script>
+		var cards = [
+			Object.create(card).init(['A', '2', 'A', '3']),
+			Object.create(card).init(['N', '<font size="4px">7</font>']),
+			Object.create(card).init(['3', 'P']),
+			Object.create(card).init(['4', '<img src="img/widgy-E.png" />'])
+		];
+
+		drawCards(cards);
+	</script>
 </body>
 
 </html>
