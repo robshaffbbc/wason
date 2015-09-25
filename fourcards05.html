@@ -1,0 +1,81 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+
+	<title>Wason Selection Experiment</title>
+	<link rel="stylesheet" href="css/cards.css">
+	<script src="js/card.js"></script>
+ </head>
+
+<body>
+	<h1>Wason Selection Experiment</h1>
+	<div id="wrapper">
+		<div class="card"></div>
+		<div class="card"></div>
+		<div class="card"></div>
+		<div class="card"></div>
+		<p id="game-over"></p>
+
+		<p class="rule">Every card with a vowel has an even number on the other side.</p>
+		<p>What is the minimum number of cards you need to turn over to disprove the rule?</p>
+		<a href="fourcards04.html" class="previous">&lt; previous</a>
+		<p id="clicks-remaining"></p>
+	</div>
+
+	<script>
+		window.clicksRemaining = 3;
+		window.dangerTime = false;
+
+		var cards = [
+			Object.create(card).init(['A', '<img src="img/aubergine.jpg" />']),
+			Object.create(card).init(['N', '7']),
+			Object.create(card).init(['3', 'P']),
+			Object.create(card).init(['<img src="img/biohazard.png" />'])
+		];
+
+		drawCards(cards);
+
+		function doDanger() {
+			if(window.dangerTime) {
+				if(window.clicksRemaining == 0) {
+					var wrapper = document.getElementById('wrapper');
+					for(var i = 0; i < 4; i++) {
+						var card = document.getElementsByClassName('card')[0];
+						wrapper.removeChild(card);
+					}
+					document.getElementById('game-over').innerHTML = "GAME OVER!";
+				}
+				document.getElementById('clicks-remaining').innerHTML = window.clicksRemaining
+				window.clicksRemaining -= 1;
+
+			}
+		}
+
+		cards[0].postFlip = function() {
+			document.getElementsByClassName('rule')[0].innerHTML = "Every card has an aubergine on the other side!!!";
+			doDanger();
+		}
+
+		cards[1].postFlip = function() {
+			document.getElementsByClassName('rule')[0].innerHTML = "Every card with a vowel has an even number on the other side.";
+			doDanger();
+		}
+
+		cards[2].postFlip = function() {
+			document.getElementsByClassName('rule')[0].innerHTML = "Every card with a vowel has an even number on the other side.";
+			doDanger();
+		}
+
+		cards[3].postFlip = function() {
+			document.getElementsByClassName('rule')[0].innerHTML = "Every card with a vowel has an even number on the other side.";
+			window.dangerTime = true;
+			doDanger();
+		}
+
+	</script>
+</body>
+
+</html>

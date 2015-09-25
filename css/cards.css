@@ -37,7 +37,8 @@ h1 {
 	cursor: pointer;
 	box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.4);
 	font-size: 180px;
-	padding-top: 35px;	
+	padding-top: 35px;
+	background-color: #fefefe;	
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -45,6 +46,10 @@ h1 {
 
 .card.moveable:hover {
 	margin-top: -20px;
+}
+
+.card.dodgy-colour {
+	background-color: #bababa;
 }
 
 p {
@@ -59,4 +64,19 @@ p.rule {
 
 a.next {
 	float: right;
+}
+
+#game-over {
+	font-size: 150px;
+	line-height: 0;
+	color: #DC143C;
+}
+
+#clicks-remaining {
+	position: absolute;
+	top: 0;
+	right: 20px;
+	font-size: 3em;
+	font-weight: bold;
+	color: #DC143C;
 }

@@ -14,6 +14,7 @@ var card = {
 		var that = this;
 
 		return function () {
+			console.log(that.sides);
 			if (that.currentIndex < that.sides.length - 1) {
 				that.currentIndex += 1;
 			} else {
@@ -21,8 +22,10 @@ var card = {
 			}
 
 			that.draw(element);
+			that.postFlip();
 		}
-	}
+	},
+	postFlip: function() {}
 };
 
 if (typeof Object.create !== 'function') {
