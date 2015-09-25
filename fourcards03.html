@@ -1,0 +1,75 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+
+	<title>Wason Selection Experiment</title>
+	<link rel="stylesheet" href="css/cards.css">
+	<script src="js/card.js"></script>
+ </head>
+
+<body>
+	<h1>Wason Selection Experiment</h1>
+	<div id="wrapper">
+		<div class="card"></div>
+		<div class="card"></div>
+		<div class="card dodgy-colour"></div>
+		<div class="card"></div>
+
+		<p class="rule">Every card with a vowel has an even number on the other side.</p>
+		<p>What other tests should we do?</p>
+
+		<a href="fourcards02.html" class="previous">&lt; previous</a>
+		<a href="fourcards04.html" class="next">next &gt;</a>
+	</div>
+
+	<script>
+		function getRandomColor() {
+	    var letters = '0123456789ABCDEF'.split('');
+	    var color = '#';
+	    for (var i = 0; i < 6; i++ ) {
+	        color += letters[Math.floor(Math.random() * 16)];
+	    }
+	    return color;
+	  }
+
+	  function getRandomCharacter() {
+	  	return Math.random().toString(36).toUpperCase().slice(2)[0];
+	  }
+
+		var cards = [
+			Object.create(card).init(['A', '2']),
+			Object.create(card).init(['N', '7']),
+			Object.create(card).init(['3', 'P']),
+			Object.create(card).init(['4', 'E'])
+		];
+
+			cards[0].flip = function() {
+				return function() {
+					var element = document.getElementsByClassName('card')[1];
+					cards[1].flip(element)();
+				}
+			};
+
+		cards[2].flip = function() {
+			return function() {
+				document.body.style.backgroundColor = getRandomColor();
+				document.getElementsByClassName('card')[2].innerHTML = getRandomCharacter();
+			}
+		};
+
+		cards[3].flip = function() {
+			return function() {
+				var wrapper = document.getElementById('wrapper');
+				var card = document.getElementsByClassName('card')[0];
+				wrapper.removeChild(card);
+			}
+		};
+
+		drawCards(cards);
+	</script>
+</body>
+
+</html>

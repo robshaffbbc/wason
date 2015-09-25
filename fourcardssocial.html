@@ -13,20 +13,27 @@
 <body>
 	<h1>Wason Selection Experiment</h1>
 	<div id="wrapper">
+		<div class="card-title">Person 1</div>
+		<div class="card-title">Person 2</div>
+		<div class="card-title">Person 3</div>
+		<div class="card-title">Person 4</div>
 		<div class="card"></div>
 		<div class="card"></div>
 		<div class="card"></div>
 		<div class="card"></div>
 
+		<p>Four people are drinking in a bar.</p>
+		<p>You can find out their age and what they are drinking.</p>
 		<p class="rule">If you are drinking alcohol then you must be over 18.</p>
-		<p>The same problem, applied to a social context, is much easier to work out.</p>
+		<p>Which cards do you need to turn over to see if there is a problem?</p>
 
-		<a href="fourcards02.html" class="previous">&lt; previous</a>
+		<a href="fourcards01.html" class="previous">&lt; previous</a>
+		<a href="fourcards02.html" class="next">next &gt;</a>
 	</div>
 
 	<script>
 		var cards = [
-			Object.create(card).init(['16', '<img src="img/beer.png" />']),
+			Object.create(card).init(['14', '<img src="img/beer.png" />']),
 			Object.create(card).init(['25', '<img src="img/coke.jpg" />']),
 			Object.create(card).init(['<img src="img/beer.png" />', '15']),
 			Object.create(card).init(['<img src="img/coke.jpg" />', '22'])

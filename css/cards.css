@@ -8,35 +8,48 @@ h1 {
 }
 
 #wrapper {
-	width: 970px;
+	width: 972px;
 	margin: 0 auto;
 	padding:10px;
 }
 
-.card {
-	border:1px solid #bbb;
+.card-title {
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+.card, .card-title {
 	float:left;
 	width:200px;
-	height:245px;
 	padding:10px;
+	margin:10px;
+	text-align: center;
+}
+
+.card {
 	border:1px solid #bbb;
-	margin: 0 10px 80px 10px;
+	height:245px;
+	border:1px solid #bbb;
+	margin: 0 10px 50px 10px;
 	white-space: normal;
 	overflow: hidden;
 	border-radius: 20px;
 	cursor: pointer;
 	box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.4);
 	font-size: 180px;
-	margin-top: 50px;
-	text-align: center;
-	padding-top: 35px;	
+	padding-top: 35px;
+	background-color: #fefefe;	
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 }
 
 .card.moveable:hover {
-	margin-top: 0;
+	margin-top: -20px;
+}
+
+.card.dodgy-colour {
+	background-color: #bababa;
 }
 
 p {
@@ -51,4 +64,19 @@ p.rule {
 
 a.next {
 	float: right;
+}
+
+#game-over {
+	font-size: 150px;
+	line-height: 0;
+	color: #DC143C;
+}
+
+#clicks-remaining {
+	position: absolute;
+	top: 0;
+	right: 20px;
+	font-size: 3em;
+	font-weight: bold;
+	color: #DC143C;
 }
